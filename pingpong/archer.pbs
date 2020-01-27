@@ -1,0 +1,19 @@
+#!/bin/bash --login
+#PBS -A y14
+#PBS -N pingpong
+#PBS -l walltime=00:01:00
+
+# You will need to change the value of "select" below if you run on
+# more than one node (e.g. on more than 24 processes).
+
+#PBS -l select=1
+  
+cd $PBS_O_WORKDIR
+
+# You need to set any environment variables before job launch
+# e.g. if you wanted to turn off the eager protocol completely then
+# uncomment the following line (which sets the limit to zero)
+
+# export MPICH_GNI_MAX_EAGER_MSG_SIZE=0
+
+aprun -n 2 ./pingpong
