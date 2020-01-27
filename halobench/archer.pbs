@@ -1,0 +1,13 @@
+#!/bin/bash --login
+#PBS -A z19-cse
+#PBS -N halobench
+#PBS -l walltime=00:01:00
+
+# You will need to change the value of "select" below if you run on
+# more than one node (e.g. on more than 24 processes).
+
+#PBS -l select=8
+  
+cd $PBS_O_WORKDIR
+
+aprun -n 192 ./halobench
